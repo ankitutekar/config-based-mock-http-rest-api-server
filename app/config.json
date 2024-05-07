@@ -1,0 +1,23 @@
+{
+	"port": 5555,
+	"routes": [
+		{
+			"path": "/",
+			"verb": "GET",
+			"responseType": "PLAINTEXT",
+			"reponse": {
+				"statusCode": "200",
+				"data": "Hello"
+			}
+		},
+		{
+			"path": "/customers",
+			"verb": "GET",
+			"responseType": "JSON",
+			"reponse": {
+				"statusCode": "200",
+				"data": [{ "name": "custy1" }, { "name": "custy2" }]
+			}
+		}
+	]
+}
