@@ -1,5 +1,6 @@
 import json
 import socket
+from threading import Thread
 
 HTTP_RESPONSE_STATUS = {
     "200": "HTTP/1.1 200 OK",
@@ -84,7 +85,8 @@ def main():
     try:
         while True:
             conn_ref, address = server_socket.accept()
-            handle_request(conn_ref, address)
+            thread = Thread(target=handle_request, args=(conn_ref, address))
+            thread.start()
     except KeyboardInterrupt:
         print("Server stopped by user")
     except Exception as e:
